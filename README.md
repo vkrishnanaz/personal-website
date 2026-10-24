@@ -1,9 +1,25 @@
-# Vivek Krishnan academic website
+# Vivek Krishnan — academic website
 
-Preview: open index.html in a browser, or run `python3 -m http.server 8000` here.
+A small static academic website. No build tools or dependencies.
 
-Deploy: create a GitHub repository, upload the files, enable GitHub Pages under Settings > Pages (main branch, root), and test the github.io URL. Set custom domain to `vivekrkrishnan.com` (confirm spelling in Porkbun). At Porkbun configure apex A records to 185.199.108.153, 185.199.109.153, 185.199.110.153, and 185.199.111.153. Then enable Enforce HTTPS after certificate provisioning. Configure vrkrishnan.com as a permanent redirect to https://vivekrkrishnan.com using Porkbun URL forwarding, verifying both HTTP and HTTPS behavior. GitHub Pages supports one custom domain per site; secondary-domain forwarding is configured separately.
+## Preview
+Open `index.html` in a browser. Navigate using the top links.
 
-The HTML uses relative asset paths, so changing primary domains later does not require rewriting the website. The placeholder portrait is embedded as SVG in HTML; replace the `.photo` contents with an image when ready.
+## Publish using GitHub Pages
+1. Create a public GitHub repository (GitHub Pages on the free plan requires a public repository).
+2. Upload all files **and folders** from this directory to the repository root.
+3. Under Settings → Pages, select Deploy from a branch, `main`, `/ (root)`.
+4. After the site works on the GitHub Pages URL, set the custom domain to `vivekrkrishnan.com` in Pages settings.
+5. At Porkbun, configure the DNS records GitHub currently documents for apex custom domains, and verify HTTPS. Configure `vrkrishnan.com` as a permanent redirect to `https://vivekrkrishnan.com` using Porkbun forwarding; verify HTTPS support for the forwarding domain.
 
-Before publishing: review all text, and consider whether to make the CV publicly downloadable (it contains your telephone number). Public GitHub Pages repositories expose source and assets publicly. Verify the precise domain spelling.
+## Change the primary domain later
+The site uses relative internal links and contains no hard-coded canonical domain. Update the GitHub Pages custom domain, DNS records, and the secondary-domain redirect. No source rewrite is needed.
+
+## Update the photo
+Replace `assets/portrait-placeholder.svg` with a photo file and update the `src` in `index.html`.
+
+## Privacy check before publication
+The bundled CV is the uploaded CV and includes a telephone number. Consider replacing `Vivek_Krishnan_CV.pdf` with a public version without your personal phone number.
+
+## Edit
+Edit `index.html`, `research.html`, and `publications.html` to update content. Shared styles live in `assets/style.css`.
